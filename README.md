@@ -10,7 +10,7 @@ go get -u github.com/eosswedenorg-go/haproxy@latest
 
 ### Constants
 
-```c
+```go
 type HealthCheckStatus string
 ```
 Enum for haproxy's agent-check protocol. Read more at the

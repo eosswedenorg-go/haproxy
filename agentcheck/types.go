@@ -1,6 +1,6 @@
 // See https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#5.2-agent-check
 
-package haproxy
+package agentcheck
 
 import "fmt"
 

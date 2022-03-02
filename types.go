@@ -8,6 +8,36 @@ type HealthCheck interface {
     String() string
 }
 
+//  Weight setting
+// -----------------------
+
+func Weight(p int) HealthCheckWeigth {
+    return HealthCheckWeigth{Percentage: p}
+}
+
+type HealthCheckWeigth struct {
+    Percentage int
+}
+
+func (s HealthCheckWeigth) String() string {
+    return fmt.Sprintf("%d%%\n", s.Percentage)
+}
+
+//  Max connections
+// -----------------------
+
+func MaxConn(value int) HealthCheckMaxConn {
+    return HealthCheckMaxConn{Value: value}
+}
+
+type HealthCheckMaxConn struct {
+    Value int
+}
+
+func (s HealthCheckMaxConn) String() string {
+    return fmt.Sprintf("maxconn:%d\n", s.Value)
+}
+
 //  Status
 // -----------------------
 

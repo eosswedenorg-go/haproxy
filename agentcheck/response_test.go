@@ -38,6 +38,10 @@ func TestStatusMessage(t *testing.T) {
 
     assert.Equal(t, "down\n", s.String())
 
+    s = NewStatusMessageResponse(Down, "Some other error")
+
+    assert.Equal(t, "down#Some other error\n", s.String())
+
     s = NewStatusMessageResponse(Failed, "some error")
 
     assert.Equal(t, "fail#some error\n", s.String())

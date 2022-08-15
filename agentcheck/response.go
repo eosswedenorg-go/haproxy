@@ -72,7 +72,7 @@ func NewStatusMessageResponse(s StatusMessageResponseType, msg string) StatusMes
 type StatusMessageResponseType string
 const (
     Down     StatusMessageResponseType = "down"
-    Failed   StatusMessageResponseType = "fail"
+    Fail     StatusMessageResponseType = "fail"
     Stopped  StatusMessageResponseType = "stopped"
 )
 

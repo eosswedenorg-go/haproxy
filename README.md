@@ -16,7 +16,7 @@ import "github.com/eosswedenorg-go/haproxy/agentcheck"
 
 This module exposes a simple API to deal with HAproxy's auxiliary agent check via TCP Messages.
 
-Read the [official documentation](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#5.2-agent-check)
+Read the [official documentation](http://docs.haproxy.org/2.4/configuration.html#5.2-agent-check)
 for more information about what effect each type of message have on the HAproxy server.
 
 Include the following line in your go file:

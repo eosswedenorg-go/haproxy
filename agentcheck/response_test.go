@@ -6,19 +6,19 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestWeight(t *testing.T) {
+func TestAgentcheckResponse_Weight(t *testing.T) {
 	w := NewWeightResponse(62)
 
 	assert.Equal(t, "62%\n", w.String())
 }
 
-func TestMaxConn(t *testing.T) {
+func TestAgentcheckResponse_MaxConn(t *testing.T) {
 	c := NewMaxConnResponse(60)
 
 	assert.Equal(t, "maxconn:60\n", c.String())
 }
 
-func TestStatus(t *testing.T) {
+func TestAgentcheckResponse_Status(t *testing.T) {
 	s := NewStatusResponse(Maint)
 
 	assert.Equal(t, "maint\n", s.String())
@@ -28,7 +28,7 @@ func TestStatus(t *testing.T) {
 	assert.Equal(t, "drain\n", s.String())
 }
 
-func TestStatusMessage(t *testing.T) {
+func TestAgentcheckResponse_StatusMessage(t *testing.T) {
 	s := NewStatusMessageResponse(Down, "")
 
 	assert.Equal(t, "down\n", s.String())

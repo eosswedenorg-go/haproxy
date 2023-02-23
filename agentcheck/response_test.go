@@ -1,48 +1,43 @@
-
 package agentcheck
 
 import (
-    "testing"
-    "github.com/stretchr/testify/assert"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestWeight(t *testing.T) {
+	w := NewWeightResponse(62)
 
-    w := NewWeightResponse(62)
-
-    assert.Equal(t, "62%\n", w.String())
+	assert.Equal(t, "62%\n", w.String())
 }
 
 func TestMaxConn(t *testing.T) {
+	c := NewMaxConnResponse(60)
 
-    c := NewMaxConnResponse(60)
-
-    assert.Equal(t, "maxconn:60\n", c.String())
+	assert.Equal(t, "maxconn:60\n", c.String())
 }
 
 func TestStatus(t *testing.T) {
+	s := NewStatusResponse(Maint)
 
-    s := NewStatusResponse(Maint)
+	assert.Equal(t, "maint\n", s.String())
 
-    assert.Equal(t, "maint\n", s.String())
+	s = NewStatusResponse(Drain)
 
-    s = NewStatusResponse(Drain)
-
-    assert.Equal(t, "drain\n", s.String())
+	assert.Equal(t, "drain\n", s.String())
 }
 
-
 func TestStatusMessage(t *testing.T) {
+	s := NewStatusMessageResponse(Down, "")
 
-    s := NewStatusMessageResponse(Down, "")
+	assert.Equal(t, "down\n", s.String())
 
-    assert.Equal(t, "down\n", s.String())
+	s = NewStatusMessageResponse(Down, "Some other error")
 
-    s = NewStatusMessageResponse(Down, "Some other error")
+	assert.Equal(t, "down#Some other error\n", s.String())
 
-    assert.Equal(t, "down#Some other error\n", s.String())
+	s = NewStatusMessageResponse(Fail, "some error")
 
-    s = NewStatusMessageResponse(Fail, "some error")
-
-    assert.Equal(t, "fail#some error\n", s.String())
+	assert.Equal(t, "fail#some error\n", s.String())
 }
